@@ -64,7 +64,9 @@ class ToolController extends Controller
     public function store(Request $request)
     {
         $user = $request->user();
-        $data = $request->all();
+        $data = array_only([
+            'name', 'email', 'password'
+        ], $request->all());
 
         request()->validate([
             'name' => 'required|string',
