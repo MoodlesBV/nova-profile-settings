@@ -2,6 +2,8 @@
 
 namespace Runline\ProfileTool\Http\Controllers;
 
+use Hash;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class ToolController extends Controller
@@ -64,13 +66,17 @@ class ToolController extends Controller
         $user = $request->user();
         $data = $request->all();
 
-        dd($user, $data);
-
         request()->validate([
             'name' => 'required|string',
             'email' => 'required|email',
             'password' => 'nullable|string|confirmed'
         ]);
+
+        if ($data['password']) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            unset($data['password']);
+        }
 
         $user->update($data);
 
