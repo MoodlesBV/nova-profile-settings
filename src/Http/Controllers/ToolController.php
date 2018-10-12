@@ -70,17 +70,26 @@ class ToolController extends Controller
         $changed_fields = array();
 
         if (request()->filled('name')) {
-            auth()->user()->update(request('name'));
+            auth()->user()->update([
+                'name' => request('name')
+            ]);
+
             array_push($changed_fields, 'Name');
         }
 
         if (request()->filled('email')) {
-            auth()->user()->update(request('email'));
+            auth()->user()->update([
+                'email' => request('email')
+            ]);
+
             array_push($changed_fields, 'E-mail address');
         }
 
         if (request()->filled('password')) {
-            auth()->user()->update(bcrypt(request('password')));
+            auth()->user()->update([
+                'password' => bcrypt(request('password'))
+            ]);
+            
             array_push($changed_fields, 'Password');
         }
 
