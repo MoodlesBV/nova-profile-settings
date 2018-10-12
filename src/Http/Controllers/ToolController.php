@@ -73,26 +73,20 @@ class ToolController extends Controller
             auth()->user()->update([
                 'name' => request('name')
             ]);
-
-            array_push($changed_fields, 'Name');
         }
 
         if (request()->filled('email')) {
             auth()->user()->update([
                 'email' => request('email')
             ]);
-
-            array_push($changed_fields, 'E-mail address');
         }
 
         if (request()->filled('password')) {
             auth()->user()->update([
                 'password' => bcrypt(request('password'))
             ]);
-
-            array_push($changed_fields, 'Password');
         }
 
-        //return response()->json(__("Your " . implode(", ", $changed_fields)) . " have been updated!");
+        return response()->json(__("Your profile has been saved!"));
     }
 }
