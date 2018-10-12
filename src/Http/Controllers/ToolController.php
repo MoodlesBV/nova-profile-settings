@@ -67,20 +67,23 @@ class ToolController extends Controller
             'password' => 'nullable|string|confirmed'
         ]);
 
-        if(request()->filled('password')) {
-            auth()->user()->update([
-                'name' => request('name'),
-                'email' => request('email'),
-                'password' => bcrypt(request('password'))
-            ]);
+        $changed_fields = array();
+
+        if (request()->filled('name')) {
+            auth()->user()->update(request('name'));
+            array_push($changed_fields, 'Name');
         }
 
-        else {
-            if(request()->filled('name', 'email')) {
-                auth()->user()->update(request()->only('name', 'email'));
-            }
+        if (request()->filled('email')) {
+            auth()->user()->update(request('email'));
+            array_push($changed_fields, 'E-mail address');
         }
 
-        return response()->json(__("Your profile has been updated!"));
+        if (request()->filled('password')) {
+            auth()->user()->update(bcrypt(request('password')));
+            array_push($changed_fields, 'Password');
+        }
+
+        return response()->json(__("Your " . implode(", ", $changed_fields)) . " have been updated!");
     }
 }
