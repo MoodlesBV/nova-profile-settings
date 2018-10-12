@@ -67,7 +67,7 @@ class ToolController extends Controller
             'password' => 'nullable|string|confirmed'
         ]);
 
-        if(request()->has('password')) {
+        if(request()->filled('password')) {
             auth()->user()->update([
                 'name' => request('name'),
                 'email' => request('email'),
