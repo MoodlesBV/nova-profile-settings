@@ -71,10 +71,14 @@ class ToolController extends Controller
             auth()->user()->update([
                 'name' => request('name'),
                 'email' => request('email'),
-                'password' => bcrypt(request('password')),
+                'password' => bcrypt(request('password'))
             ]);
-        } else {
-            auth()->user()->update(request()->only('name', 'email'));
+        }
+
+        else {
+            if(request()->filled('name', 'email')) {
+                auth()->user()->update(request()->only('name', 'email'));
+            }
         }
 
         return response()->json(__("Your profile has been updated!"));
