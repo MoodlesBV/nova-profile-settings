@@ -59,33 +59,20 @@ class ToolController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store()
+    public function store(Request $request)
     {
+        $user = $request->user();
+        $data = $request->all();
+
+        dd($user, $data);
+
         request()->validate([
             'name' => 'required|string',
             'email' => 'required|email',
             'password' => 'nullable|string|confirmed'
         ]);
 
-        $changed_fields = array();
-
-        if (request()->filled('name')) {
-            auth()->user()->update([
-                'name' => request('name')
-            ]);
-        }
-
-        if (request()->filled('email')) {
-            auth()->user()->update([
-                'email' => request('email')
-            ]);
-        }
-
-        if (request()->filled('password')) {
-            auth()->user()->update([
-                'password' => bcrypt(request('password'))
-            ]);
-        }
+        $user->update($data);
 
         return response()->json(__("Your profile has been saved!"));
     }
