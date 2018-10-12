@@ -89,10 +89,10 @@ class ToolController extends Controller
             auth()->user()->update([
                 'password' => bcrypt(request('password'))
             ]);
-            
+
             array_push($changed_fields, 'Password');
         }
 
-        return response()->json(__("Your " . implode(", ", $changed_fields)) . " have been updated!");
+        //return response()->json(__("Your " . implode(", ", $changed_fields)) . " have been updated!");
     }
 }
