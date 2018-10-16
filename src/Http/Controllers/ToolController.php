@@ -1,6 +1,6 @@
 <?php
 
-namespace Runline\ProfileTool\Http\Controllers;
+namespace Moodles\ProfileTool\Http\Controllers;
 
 use Hash;
 use Illuminate\Http\Request;
@@ -14,8 +14,8 @@ class ToolController extends Controller
             [
                 "component" => "text-field",
                 "prefixComponent" => true,
-                "indexName" => "Name",
-                "name" => "Name",
+                "indexName" => __("nova-profile-settings#name"),
+                "name" => __("nova-profile-settings#name"),
                 "attribute" => "name",
                 "value" => auth()->user()->name,
                 "panel" => null,
@@ -25,8 +25,8 @@ class ToolController extends Controller
             [
                 "component" => "text-field",
                 "prefixComponent" => true,
-                "indexName" => "E-mail address",
-                "name" => "E-mail address",
+                "indexName" => __("nova-profile-settings#email"),
+                "name" => __("nova-profile-settings#email"),
                 "attribute" => "email",
                 "value" => auth()->user()->email,
                 "panel" => null,
@@ -36,8 +36,8 @@ class ToolController extends Controller
             [
                 "component" => "password-field",
                 "prefixComponent" => true,
-                "indexName" => "Password",
-                "name" => "Password",
+                "indexName" => __("nova-profile-settings#password"),
+                "name" => __("nova-profile-settings#password"),
                 "attribute" => "password",
                 "value" => null,
                 "panel" => null,
@@ -47,8 +47,8 @@ class ToolController extends Controller
             [
                 "component" => "password-field",
                 "prefixComponent" => true,
-                "indexName" => "Password Confirmation",
-                "name" => "Password Confirmation",
+                "indexName" => __("nova-profile-settings#password_confirmation"),
+                "name" => __("nova-profile-settings#password_confirmation"),
                 "attribute" => "password_confirmation",
                 "value" => null,
                 "panel" => null,
@@ -64,9 +64,8 @@ class ToolController extends Controller
     public function store(Request $request)
     {
         $user = $request->user();
-        $data = array_only([
-            'name', 'email', 'password'
-        ], $request->all());
+
+        $data = $request->only(['name', 'email', 'password']);
 
         request()->validate([
             'name' => 'required|string',

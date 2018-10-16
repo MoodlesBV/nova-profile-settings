@@ -1,6 +1,6 @@
 <template>
     <loading-view :loading="loading">
-        <heading class="mb-3">{{__("Update Profile")}}</heading>
+        <heading class="mb-3">{{__("nova-profile-settings#title")}}</heading>
 
         <card class="overflow-hidden">
             <form @submit.prevent="saveProfile">
@@ -23,7 +23,7 @@
                 <!-- Create Button -->
                 <div class="bg-30 flex px-8 py-4">
                     <button dusk="create-and-add-another-button" class="ml-auto btn btn-default btn-primary mr-3">
-                        {{__('Save Profile')}}
+                        {{__('nova-profile-settings#save_profile')}}
                     </button>
                 </div>
             </form>
@@ -73,7 +73,7 @@
                     this.loading = false
 
                     this.$toasted.show(
-                        this.__('Your profile has been saved!'),
+                        this.__('nova-profile-settings#success_message'),
                         { type: 'success' }
                     )
 
