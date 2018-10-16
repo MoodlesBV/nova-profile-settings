@@ -78,7 +78,7 @@
                         var success_message_locale = "Profile has been updated!";
                     }
                     this.$toasted.show(
-                        this.__(success_message_locale),
+                        this.success_message_locale,
                         { type: 'success' }
                     )
 
