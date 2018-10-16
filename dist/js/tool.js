@@ -289,27 +289,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 
-if (__("nova-profile-settings#title") != 'nova-profile-settings#title' && __("nova-profile-settings#title") != false) {
-    var title_locale = __("nova-profile-settings#title");
-} else {
-    // No translation specified: fallback to EN
-    var title_locale = "Edit Profile";
-}
-
-if (__("nova-profile-settings#save_profile") != 'nova-profile-settings#save_profile' && __("nova-profile-settings#save_profile") != false) {
-    var save_profile_locale = __("nova-profile-settings#save_profile");
-} else {
-    // No translation specified: fallback to EN
-    var save_profile_locale = "Save Profile";
-}
-
-if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
-    var success_message_locale = __("nova-profile-settings#success_message");
-} else {
-    // No translation specified: fallback to EN
-    var success_message_locale = "Profile has been updated!";
-}
-
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     data: function data() {
@@ -373,7 +352,7 @@ if (__("nova-profile-settings#success_message") != 'nova-profile-settings#succes
          */
         saveProfile: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var response;
+                var response, success_message_locale;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
@@ -389,17 +368,23 @@ if (__("nova-profile-settings#success_message") != 'nova-profile-settings#succes
 
                                 this.loading = false;
 
+                                if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
+                                    success_message_locale = __("nova-profile-settings#success_message");
+                                } else {
+                                    // No translation specified: fallback to EN
+                                    success_message_locale = "Profile has been updated!";
+                                }
                                 this.$toasted.show(this.__(success_message_locale), { type: 'success' });
 
                                 // Reset the form by refetching the fields
                                 this.getFields();
 
                                 this.validationErrors = new __WEBPACK_IMPORTED_MODULE_1_laravel_nova__["Errors"]();
-                                _context2.next = 15;
+                                _context2.next = 16;
                                 break;
 
-                            case 11:
-                                _context2.prev = 11;
+                            case 12:
+                                _context2.prev = 12;
                                 _context2.t0 = _context2['catch'](0);
 
                                 this.loading = false;
@@ -407,12 +392,12 @@ if (__("nova-profile-settings#success_message") != 'nova-profile-settings#succes
                                     this.validationErrors = new __WEBPACK_IMPORTED_MODULE_1_laravel_nova__["Errors"](_context2.t0.response.data.errors);
                                 }
 
-                            case 15:
+                            case 16:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[0, 11]]);
+                }, _callee2, this, [[0, 12]]);
             }));
 
             function saveProfile() {
@@ -11374,9 +11359,12 @@ var render = function() {
     "loading-view",
     { attrs: { loading: _vm.loading } },
     [
-      _c("heading", { staticClass: "mb-3" }, [
-        _vm._v(_vm._s(_vm.title_locale))
-      ]),
+      _vm.__("nova-profile-settings#title") != "nova-profile-settings#title" &&
+      _vm.__("nova-profile-settings#title") != false
+        ? _c("heading", { staticClass: "mb-3" }, [
+            _vm._v(_vm._s(_vm.__("nova-profile-settings#title")))
+          ])
+        : _c("heading", { staticClass: "mb-3" }, [_vm._v("Edit Profile")]),
       _vm._v(" "),
       _c("card", { staticClass: "overflow-hidden" }, [
         _c(
@@ -11415,20 +11403,29 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("div", { staticClass: "bg-30 flex px-8 py-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "ml-auto btn btn-default btn-primary mr-3",
-                  attrs: { dusk: "create-and-add-another-button" }
-                },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.save_profile_locale) +
-                      "\n                "
+              _vm.__("nova-profile-settings#save_profile") !=
+                "nova-profile-settings#save_profile" &&
+              _vm.__("nova-profile-settings#save_profile") != false
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "ml-auto btn btn-default btn-primary mr-3",
+                      attrs: { dusk: "create-and-add-another-button" }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(_vm.__("nova-profile-settings#save_profile"))
+                      )
+                    ]
                   )
-                ]
-              )
+                : _c(
+                    "button",
+                    {
+                      staticClass: "ml-auto btn btn-default btn-primary mr-3",
+                      attrs: { dusk: "create-and-add-another-button" }
+                    },
+                    [_vm._v("Save Profile")]
+                  )
             ])
           ],
           2

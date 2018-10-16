@@ -1,6 +1,7 @@
 <template>
     <loading-view :loading="loading">
-        <heading class="mb-3">{{ title_locale }}</heading>
+        <heading class="mb-3" v-if="__('nova-profile-settings#title') != 'nova-profile-settings#title' && __('nova-profile-settings#title') != false">{{__('nova-profile-settings#title')}}</heading>
+        <heading class="mb-3" v-else>Edit Profile</heading>
 
         <card class="overflow-hidden">
             <form @submit.prevent="saveProfile">
@@ -22,9 +23,8 @@
 
                 <!-- Create Button -->
                 <div class="bg-30 flex px-8 py-4">
-                    <button dusk="create-and-add-another-button" class="ml-auto btn btn-default btn-primary mr-3">
-                        {{ save_profile_locale }}
-                    </button>
+                    <button dusk="create-and-add-another-button" class="ml-auto btn btn-default btn-primary mr-3" v-if="__('nova-profile-settings#save_profile') != 'nova-profile-settings#save_profile' && __('nova-profile-settings#save_profile') != false">{{__("nova-profile-settings#save_profile")}}</button>
+                    <button dusk="create-and-add-another-button" class="ml-auto btn btn-default btn-primary mr-3" v-else>Save Profile</button>
                 </div>
             </form>
         </card>
@@ -33,24 +33,6 @@
 
 <script>
     import { Errors, Minimum } from 'laravel-nova'
-
-    if (__("nova-profile-settings#title") != 'nova-profile-settings#title' && __("nova-profile-settings#title") != false) {
-        var title_locale = __("nova-profile-settings#title");
-    } else { // No translation specified: fallback to EN
-        var title_locale = "Edit Profile";
-    }
-
-    if (__("nova-profile-settings#save_profile") != 'nova-profile-settings#save_profile' && __("nova-profile-settings#save_profile") != false) {
-        var save_profile_locale = __("nova-profile-settings#save_profile");
-    } else { // No translation specified: fallback to EN
-        var save_profile_locale = "Save Profile";
-    }
-
-    if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
-        var success_message_locale = __("nova-profile-settings#success_message");
-    } else { // No translation specified: fallback to EN
-        var success_message_locale = "Profile has been updated!";
-    }
 
     export default {
 
@@ -90,6 +72,11 @@
                     const response = await this.createRequest()
                     this.loading = false
 
+                    if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
+                        var success_message_locale = __("nova-profile-settings#success_message");
+                    } else { // No translation specified: fallback to EN
+                        var success_message_locale = "Profile has been updated!";
+                    }
                     this.$toasted.show(
                         this.__(success_message_locale),
                         { type: 'success' }
