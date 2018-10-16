@@ -289,6 +289,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 
+if (__("nova-profile-settings#title") != 'nova-profile-settings#title' && __("nova-profile-settings#title") != false) {
+    var title_locale = __("nova-profile-settings#title");
+} else {
+    // No translation specified: fallback to EN
+    var title_locale = "Edit Profile";
+}
+
+if (__("nova-profile-settings#save_profile") != 'nova-profile-settings#save_profile' && __("nova-profile-settings#save_profile") != false) {
+    var save_profile_locale = __("nova-profile-settings#save_profile");
+} else {
+    // No translation specified: fallback to EN
+    var save_profile_locale = "Save Profile";
+}
+
+if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
+    var success_message_locale = __("nova-profile-settings#success_message");
+} else {
+    // No translation specified: fallback to EN
+    var success_message_locale = "Profile has been updated!";
+}
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 
     data: function data() {
@@ -368,7 +389,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 this.loading = false;
 
-                                this.$toasted.show(this.__('nova-profile-settings#success_message'), { type: 'success' });
+                                this.$toasted.show(this.__(success_message_locale), { type: 'success' });
 
                                 // Reset the form by refetching the fields
                                 this.getFields();
@@ -11354,7 +11375,7 @@ var render = function() {
     { attrs: { loading: _vm.loading } },
     [
       _c("heading", { staticClass: "mb-3" }, [
-        _vm._v(_vm._s(_vm.__("nova-profile-settings#title")))
+        _vm._v(_vm._s(_vm.title_locale))
       ]),
       _vm._v(" "),
       _c("card", { staticClass: "overflow-hidden" }, [
@@ -11403,7 +11424,7 @@ var render = function() {
                 [
                   _vm._v(
                     "\n                    " +
-                      _vm._s(_vm.__("nova-profile-settings#save_profile")) +
+                      _vm._s(_vm.save_profile_locale) +
                       "\n                "
                   )
                 ]
