@@ -1,21 +1,11 @@
-# A tool to let user's update their profile in Laravel Nova
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/runlinenl/nova-profile-tool.svg?style=flat-square)](https://packagist.org/packages/runlinenl/nova-profile-tool)
-[![Total Downloads](https://img.shields.io/packagist/dt/runlinenl/nova-profile-tool.svg?style=flat-square)](https://packagist.org/packages/runlinenl/nova-profile-tool)
-
+# A tool for users to change their profile credentials
 
 When this tool is added to Nova, you can let users update their profile data without giving them access to the full
 User resource under 'Resources'.
 
-![screenshot of the backup tool](https://github.com/runlinenl/nova-profile-tool/raw/master/screenshot.png)
+![screenshot of the profile tool](https://github.com/runlinenl/nova-profile-tool/raw/master/screenshot.png)
 
 ## Installation
-
-You can install the package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
-
-```bash
-composer require runlinenl/nova-profile-tool
-```
 
 Next up, you must register the tool with Nova. This is typically done in the `tools` method of the `NovaServiceProvider`.
 
@@ -28,7 +18,7 @@ public function tools()
 {
     return [
         // ...
-        new \Runline\ProfileTool\ProfileTool,
+        new \Moodles\ProfileTool\ProfileTool,
     ];
 }
 ```
@@ -37,28 +27,43 @@ public function tools()
 
 Click on the "Profile" menu item in your Nova app to see the tool provided by this package.
 
-### Testing
 
-``` bash
-composer test
+## Change language
+
+You can fully modify the locale of the package to your own translations by specifying them in the language files.
+
+You can change the translations of the title, buttons, messages etc. in:
+`resources/lang/vendor/nova/{{lang}}.json`
+Example:
+```php
+// in resources/lang/vendor/nova/en.json
+
+{
+    // ...
+    "nova-profile-settings#success_message": "Profile has been updated!",
+    "nova-profile-settings#navigation_name": "Profile",
+    "nova-profile-settings#title": "Edit Profile",
+    "nova-profile-settings#save_profile": "Save Profile"
+}
+
 ```
 
-### Changelog
+You can change the translations of the input fields in:
+`resources/lang/{{lang}}.json`
+Example:
+```php
+// in resources/lang/en.json
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-### Security
-
-If you discover any security related issues, please email patrick@runline.nl instead of using the issue tracker.
-
-## Credits
-
-- [Patrick Bergman](https://github.com/patrickbergman)
+{
+    // ...
+    "nova-profile-settings#name": "Name",
+    "nova-profile-settings#email": "E-Mailaddress",
+    "nova-profile-settings#password": "Password",
+    "nova-profile-settings#password_confirmation": "Password confirmation"
+}
+```
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
