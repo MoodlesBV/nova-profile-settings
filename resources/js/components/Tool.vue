@@ -77,6 +77,7 @@
                     } else { // No translation specified: fallback to EN
                         var success_message_locale = "Profile has been updated!";
                     }
+                    
                     this.$toasted.show(
                         this.success_message_locale,
                         { type: 'success' }
