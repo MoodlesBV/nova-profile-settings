@@ -9,6 +9,6 @@
             }
         @endphp
 
-        {{ $navigation_name }}
+        {{ $navigation_name_locale }}
     </span>
 </router-link>
