@@ -1,9 +1,9 @@
 <?php
 
-namespace Runline\ProfileTool\Tests;
+namespace Moodles\ProfileTool\Tests;
 
-use Runline\ProfileTool\Http\Controllers\ToolController;
-use Runline\ProfileTool\ProfileTool;
+use Moodles\ProfileTool\Http\Controllers\ToolController;
+use Moodles\ProfileTool\ProfileTool;
 use Symfony\Component\HttpFoundation\Response;
 
 class ToolControllerTest extends TestCase

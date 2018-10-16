@@ -1,10 +1,10 @@
 <?php
 
-namespace Runline\ProfileTool\Http\Middleware;
+namespace Moodles\ProfileTool\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Runline\ProfileTool\ProfileTool;
+use Moodles\ProfileTool\ProfileTool;
 use Symfony\Component\HttpFoundation\Response;
 
 class Authorize

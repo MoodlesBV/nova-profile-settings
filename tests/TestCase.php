@@ -1,10 +1,10 @@
 <?php
 
-namespace Runline\ProfileTool\Tests;
+namespace Moodles\ProfileTool\Tests;
 
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Runline\ProfileTool\ToolServiceProvider;
+use Moodles\ProfileTool\ToolServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
