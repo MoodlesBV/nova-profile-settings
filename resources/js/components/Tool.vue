@@ -81,6 +81,7 @@
                     console.log(success_message_locale);
 
                     this.$toasted.show(success_message_locale, { type: 'success' })
+                    this.$toasted.show('It worked!', { type: 'success' })
 
                     // Reset the form by refetching the fields
                     this.getFields()
