@@ -10,7 +10,7 @@ class ToolController extends Controller
 {
     public function index()
     {
-        dd(__("vendor/nova/nova-profile-settings#name"));
+
         if (__("nova-profile-settings#name") != 'nova-profile-settings#name' && __("nova-profile-settings#name") != false) {
             $name_locale = __("vendor/nova/nova-profile-settings#name");
         } else { // No translation specified: fallback to EN
