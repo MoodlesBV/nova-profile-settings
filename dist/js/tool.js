@@ -352,7 +352,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
          */
         saveProfile: function () {
             var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
-                var response, success_message_locale;
+                var response;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
                     while (1) {
                         switch (_context2.prev = _context2.next) {
@@ -368,27 +368,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 this.loading = false;
 
-                                if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
-                                    success_message_locale = __("nova-profile-settings#success_message");
-                                } else {
-                                    // No translation specified: fallback to EN
-                                    success_message_locale = "Profile has been updated!";
-                                }
-
-                                console.log(success_message_locale);
-
-                                this.$toasted.show(success_message_locale, { type: 'success' });
-                                this.$toasted.show('It worked!', { type: 'success' });
-
                                 // Reset the form by refetching the fields
                                 this.getFields();
 
                                 this.validationErrors = new __WEBPACK_IMPORTED_MODULE_1_laravel_nova__["Errors"]();
-                                _context2.next = 18;
+                                _context2.next = 14;
                                 break;
 
-                            case 14:
-                                _context2.prev = 14;
+                            case 10:
+                                _context2.prev = 10;
                                 _context2.t0 = _context2['catch'](0);
 
                                 this.loading = false;
@@ -396,12 +384,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     this.validationErrors = new __WEBPACK_IMPORTED_MODULE_1_laravel_nova__["Errors"](_context2.t0.response.data.errors);
                                 }
 
-                            case 18:
+                            case 14:
                             case 'end':
                                 return _context2.stop();
                         }
                     }
-                }, _callee2, this, [[0, 14]]);
+                }, _callee2, this, [[0, 10]]);
             }));
 
             function saveProfile() {
