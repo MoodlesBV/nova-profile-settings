@@ -71,9 +71,15 @@
                     this.loading = true
                     const response = await this.createRequest()
                     this.loading = false
+
+                    if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
+                        var success_message_locale = __("nova-profile-settings#success_message");
+                    } else { // No translation specified: fallback to EN
+                        var success_message_locale = "Profile has been updated!";
+                    }
                     
                     this.$toasted.show(
-                        this.__("nova-profile-settings#success_message"),
+                        this.$success_message_locale,
                         { type: 'success' }
                     )
 
