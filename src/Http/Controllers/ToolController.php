@@ -105,6 +105,12 @@ class ToolController extends Controller
 
         $user->update($data);
 
-        return response()->json(__("Your profile has been saved!"));
+        if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
+            $success_message_locale = __("nova-profile-settings#success_message");
+        } else { // No translation specified: fallback to EN
+            $success_message_locale = "Profile has been updated!";
+        }
+
+        return response()->json($success_message_locale);
     }
 }

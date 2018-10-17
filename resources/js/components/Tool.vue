@@ -79,7 +79,7 @@
                     }
                     
                     this.$toasted.show(
-                        this.success_message_locale,
+                        this.$success_message_locale,
                         { type: 'success' }
                     )
 
