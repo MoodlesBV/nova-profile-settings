@@ -77,11 +77,10 @@
                     } else { // No translation specified: fallback to EN
                         var success_message_locale = "Profile has been updated!";
                     }
-                    
-                    $toasted.show(
-                        success_message_locale,
-                        { type: 'success' }
-                    )
+
+                    console.log(success_message_locale);
+
+                    this.$toasted.show(success_message_locale, { type: 'success' })
 
                     // Reset the form by refetching the fields
                     this.getFields()
