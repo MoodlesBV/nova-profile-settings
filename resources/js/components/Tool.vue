@@ -71,9 +71,9 @@
                     this.loading = false
 
                     if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
-                        this.$toasted.show(__("nova-profile-settings#success_message"), { type: 'success' })
+                        this.$toasted.show(this.__("nova-profile-settings#success_message"), { type: 'success' })
                     } else { // No translation specified: fallback to EN
-                        this.$toasted.show('Profile has been updated!', { type: 'success' })
+                        //this.$toasted.show('Profile has been updated!', { type: 'success' })
                     }
 
                     // Reset the form by refetching the fields
