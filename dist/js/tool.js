@@ -375,7 +375,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                     success_message_locale = "Profile has been updated!";
                                 }
 
-                                this.$toasted.show(success_message_locale, { type: 'success' });
+                                $toasted.show(success_message_locale, { type: 'success' });
 
                                 // Reset the form by refetching the fields
                                 this.getFields();
