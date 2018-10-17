@@ -366,7 +366,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                                 this.loading = false;
 
-                                if (__("nova-profile-settings#success_message")) {
+                                if (true) {
                                     this.$toasted.show(__("nova-profile-settings#success_message"), { type: 'success' });
                                 } else {
                                     // No translation specified: fallback to EN
