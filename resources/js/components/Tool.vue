@@ -57,8 +57,6 @@
                     '/nova-vendor/runlinenl/nova-profile-tool'
                 )
 
-                console.log(fields)
-
                 this.fields = fields
                 this.loading = false
             },
@@ -72,7 +70,14 @@
                     const response = await this.createRequest()
                     this.loading = false
 
+                    if (__("nova-profile-settings#success_message") != 'nova-profile-settings#success_message' && __("nova-profile-settings#success_message") != false) {
+                        var success_message_locale = __("nova-profile-settings#success_message");
+                    } else { // No translation specified: fallback to EN
+                        var success_message_locale = "Profile has been updated!";
+                    }
                     
+                    this.$toasted.show('It worked!', { type: 'success' })
+                    this.$toasted.show(success_message_locale, { type: 'success' })
 
                     // Reset the form by refetching the fields
                     this.getFields()
