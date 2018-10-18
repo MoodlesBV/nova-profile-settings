@@ -1,6 +1,6 @@
 <template>
     <loading-view :loading="loading">
-        <heading class="mb-3" v-if="__('vendor.nova.nova-profile-settings#title') != 'nova-profile-settings#title' && __('nova-profile-settings#title') != false">{{__('nova-profile-settings#title')}}</heading>
+        <heading class="mb-3" v-if="__('nova-profile-settings#title') != 'nova-profile-settings#title' && __('nova-profile-settings#title') != false">{{__('nova-profile-settings#title')}}</heading>
         <heading class="mb-3" v-else>Edit Profile</heading>
 
         <card class="overflow-hidden">
