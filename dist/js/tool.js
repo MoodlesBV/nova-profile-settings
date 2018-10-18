@@ -11351,7 +11351,8 @@ var render = function() {
     "loading-view",
     { attrs: { loading: _vm.loading } },
     [
-      _vm.__("nova-profile-settings#title") != "nova-profile-settings#title" &&
+      _vm.__("vendor.nova.nova-profile-settings#title") !=
+        "nova-profile-settings#title" &&
       _vm.__("nova-profile-settings#title") != false
         ? _c("heading", { staticClass: "mb-3" }, [
             _vm._v(_vm._s(_vm.__("nova-profile-settings#title")))
